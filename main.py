@@ -14,7 +14,6 @@ def main():
                             "4) Посмотреть все книги",
                             "5) Изменить статус книги",
                             "6) Выйти\n\nВвод: "])) # дописали выход из программы для удобства пользователя
-
             if command == "1":
                 title = input("Введите название книги: ")
                 author = input("Введите автора книги: ")
@@ -37,22 +36,17 @@ def main():
                 for book in book_set:
                     print(book)
                 print("-" * 100)
-
             elif command == "4":
                 lib.view_book_set()
-
             elif command == "5":
                 book_id = input("Введите ID книги для изменения статуса: ")
                 new_status = input(f"Введите новый статус книги [{', '.join(Library.status_set)}]: ")
                 lib.change_book_status(book_id, new_status)
                 print("\n", "-" * 100, "\n Статус изменен\n", "-" * 100, "\n")
-
             elif command == "6":
                 exit()
-
             else:
                 raise ValueError("Введите корректный номер команды")
-
         except Exception as e:
             print("\n", "!" * 100, "\n")
             print(" ", e)
